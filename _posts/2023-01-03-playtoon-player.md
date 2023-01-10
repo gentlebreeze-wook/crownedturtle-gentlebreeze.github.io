@@ -34,9 +34,18 @@ toc: true
 </form>
 
 <form id="InputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
-    <input id="title" type="text" placeholder="Title" required/>
-    <input id="episode" type="text" placeholder="Episode" required />
-    <input id="token" type="text" placeholder="Token" required />
+    <input id="title" type="text" placeholder="Title" list="title-list" required />
+    <datalist id="title-list">
+        <option value="Title_Sample"></option>
+    </datalist>
+    <input id="episode" type="text" placeholder="Episode" list="episode-list" required />
+    <datalist id="episode-list">
+        <option value="Episode1"></option>
+    </datalist>
+    <input id="token" type="text" placeholder="Token" list="token-list" required />
+    <datalist id="token-list">
+        <option value="2Q+XL16sTtE="></option>
+    </datalist>
     <button type="submit" id="show-selected" class="btn btn--info">View PlayToon</button>
 </form>
 

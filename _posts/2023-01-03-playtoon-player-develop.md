@@ -43,7 +43,10 @@ toc: true
     <datalist id="episode-list">
         <option value="Episode1"></option>
     </datalist>
-    <input id="token" type="text" placeholder="Token" required />
+    <input id="token" type="text" placeholder="Token" list="token-list" required />
+    <datalist id="token-list">
+        <option value="2Q+XL16sTtE="></option>
+    </datalist>
     <button type="submit" id="show-selected" class="btn btn--info">View PlayToon</button>
 </form>
 
