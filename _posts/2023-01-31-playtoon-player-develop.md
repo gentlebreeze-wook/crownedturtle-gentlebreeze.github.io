@@ -1,7 +1,5 @@
 ---
 title: "PlayToon Player Demo - Alpha (Develop)"
-header:
-  teaser: "assets/images/markup-syntax-highlighting-teaser.jpg"
 categories:
   - PlayToon
 tags:  

@@ -1,7 +1,5 @@
 ---
 title: "PlayToonPlayer Test"
-header:
-  teaser: "assets/images/markup-syntax-highlighting-teaser.jpg"
 categories:
   - PlayToon
 tags:
