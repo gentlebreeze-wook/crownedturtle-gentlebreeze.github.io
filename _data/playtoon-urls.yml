@@ -5,6 +5,8 @@ contents:
   test      : "https://secret-angel.speedycdn.net/PlayToonRoot/Test/Contents"
   qa        : "https://secret-angel.speedycdn.net/PlayToonRoot/QA/Contents"
   real      : "https://secret-angel.speedycdn.net/PlayToonRoot/Real/Contents"
+  contents_010    : "https://secret-angel.speedycdn.net//PlayToonContents/Contents/0.1.0"
+  contents_020    : "https://secret-angel.speedycdn.net//PlayToonContents/Contents/0.2.0"
 
 player:  
   root            : "https://secret-angel.speedycdn.net/PlayToonRoot"

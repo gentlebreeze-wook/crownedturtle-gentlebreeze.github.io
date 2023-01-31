@@ -18,7 +18,7 @@ toc: true
 **Watch out!** This is the Playtoon Player demo alpha version develop page. [PlayToon Player Demo](#player-demo---alpha-develop).
 {: .notice--danger}
 
-<form id="targetRadio">
+<form id="formTargetRadio">
   <fieldset>
     <p>Please select target:</p>
     <div>
@@ -36,7 +36,7 @@ toc: true
   </fieldset>
 </form>
 
-<form id="InputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
+<form id="formInputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
     <input id="custom-url" name="customUrl" type="text" placeholder="Please enter a Conents URL" disabled required />
     <input id="title" type="text" placeholder="Title" list="title-list" required />
     <datalist id="title-list">
@@ -82,19 +82,19 @@ toc: true
   function SetTargetRadioCustomUrl(currentRadio){
     let isCustomUrl = currentRadio == "Custom";
     if(isCustomUrl == false){
-      InputInfo.customUrl.value = "";
+      formInputInfo.customUrl.value = "";
     }
-    InputInfo.customUrl.disabled = !isCustomUrl;
-    InputInfo.customUrl.required = isCustomUrl;
+    formInputInfo.customUrl.disabled = !isCustomUrl;
+    formInputInfo.customUrl.required = isCustomUrl;
   }
   function PlayToonSubmit(theForm){
     let playerRootUrl = "{{site.data.playtoon-urls.player.root}}";
     let token = theForm.elements["token"].value;
     let title = theForm.elements["title"].value;
     let episode = theForm.elements["episode"].value;
-    for(let i=1; i < targetRadio.elements.length; ++i){
-      if(targetRadio.elements[i].checked){
-        var target = targetRadio.elements[i].value;
+    for(let i=1; i < formTargetRadio.elements.length; ++i){
+      if(formTargetRadio.elements[i].checked){
+        var target = formTargetRadio.elements[i].value;
         var contentsUrl = GetContentsUrl(theForm, target)
       }
     }

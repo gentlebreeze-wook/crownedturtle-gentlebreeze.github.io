@@ -17,7 +17,7 @@ toc: true
 **Watch out!** This is the Playtoon Player demo beta version page. [PlayToon Player Demo](#player-demo---beta).
 {: .notice--warning}
 
-<form id="targetRadio">
+<form id="formTargetRadio">
   <fieldset>
     <p>Only QA can be selected:</p>
     <div>
@@ -33,7 +33,7 @@ toc: true
   </fieldset>
 </form>
 
-<form id="InputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
+<form id="formInputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
     <input id="title" type="text" placeholder="Title" list="title-list" required />
     <datalist id="title-list">
         <option value="Title_Sample"></option>
@@ -62,9 +62,9 @@ toc: true
     let token = theForm.elements["token"].value;
     let title = theForm.elements["title"].value;
     let episode = theForm.elements["episode"].value;
-    for(let i=1; i < targetRadio.elements.length; ++i){
-      if(targetRadio.elements[i].checked){
-        var target = targetRadio.elements[i].value;
+    for(let i=1; i < formTargetRadio.elements.length; ++i){
+      if(formTargetRadio.elements[i].checked){
+        var target = formTargetRadio.elements[i].value;
       }
     }
     var url = "https://secret-angel.speedycdn.net/PlayToonRoot/{0}/Player/index.html?token={1}?title={2}?episode={3}".format(target, token, title, episode);
