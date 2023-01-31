@@ -1,5 +1,5 @@
 ---
-title: "PlayToon Player Demo - Alpha (Develop)"
+title: "PlayToon Test Player"
 header:
   teaser: "assets/images/markup-syntax-highlighting-teaser.jpg"
 categories:
@@ -7,29 +7,32 @@ categories:
 tags:  
   - playtoon
   - player
-  - demo
-  - alpha
-  - develop  
+  - test
 toc: true
 ---
 
-# Player Demo - Alpha (Develop)
+# Test Player
 <!-- Html 문법과 markdown 문법 섞임 -->
-**Watch out!** This is the Playtoon Player demo alpha version develop page. [PlayToon Player Demo](#player-demo---alpha-develop).
+**Watch out!** This is the Playtoon Test Player page. [PlayToon Test Player](#test-player).
 {: .notice--danger}
 
-<form id="targetRadio">
+<form id="playerVersion">
   <fieldset>
-    <p>Please select target:</p>
+  <p>Test Player Version:</p>
+    <select name="version" >
+      <!-- <option value="none">=== Select ===</option> -->
+      <option value="2.0.0">2.0.0</option>
+      <option value="1.0.0" selected>1.0.0</option>
+    </select>
+  </fieldset>
+</form>
+
+<form id="contentsUrl">
+  <fieldset>
+    <p>Contents URL:</p>
     <div>
-      <input type="radio" id="Develop" name="contact" value="Develop" onclick="SetTargetRadioCustomUrl('Develop')" checked> Develop
-      <label for="Develop"></label>
-      <input type="radio" id="Test" name="contact" value="Test" onclick="SetTargetRadioCustomUrl('Test')"> Test
-      <label for="Test"></label>
-      <input type="radio" id="QA" name="contact" value="QA" onclick="SetTargetRadioCustomUrl('QA')"> QA
-      <label for="QA"></label>
-      <input type="radio" id="Real" name="contact" value="Real" onclick="SetTargetRadioCustomUrl('Real')" disabled> Real
-      <label for="Real" ></label>
+      <input type="radio" id="Default" name="contact" value="Default" onclick="SetTargetRadioCustomUrl('Default')" checked> Default
+      <label for="Default"></label>
       <input type="radio" id="Custom" name="contact" value="Custom" onclick="SetTargetRadioCustomUrl('Custom')"> Custom
       <label for="Custom" ></label>
     </div>
@@ -41,13 +44,12 @@ toc: true
     <input id="title" type="text" placeholder="Title" list="title-list" required />
     <datalist id="title-list">
         <option value="Title_Sample"></option>
-        <option value="Title_Sample_JP"></option>
     </datalist>
     <input id="episode" type="text" placeholder="Episode" list="episode-list" required />
     <datalist id="episode-list">
         <option value="Episode1"></option>
     </datalist>
-    <input id="token" type="text" placeholder="Token" list="token-list" required />
+    <input id="token" type="text" placeholder="Tokens issued by the client" list="token-list" required />
     <datalist id="token-list">
         <!-- <option value="2Q+XL16sTtE="></option> -->
     </datalist>
@@ -99,7 +101,7 @@ toc: true
       }
     }
     var url = "{0}/{1}/Player/index.html?token={2}&title={3}&episode={4}&c_url={5}".format(playerRootUrl, target, token, title, episode, contentsUrl);
-    // alert(url);
-    location.href=url;
+    alert(url);
+    // location.href=url;
   }
 </script>

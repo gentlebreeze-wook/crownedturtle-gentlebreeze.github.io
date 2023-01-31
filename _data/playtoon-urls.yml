@@ -1,0 +1,12 @@
+# linkUrls
+
+contents:
+  develop   : "https://secret-angel.speedycdn.net/PlayToonRoot/Develop/Contents"
+  test      : "https://secret-angel.speedycdn.net/PlayToonRoot/Test/Contents"
+  qa        : "https://secret-angel.speedycdn.net/PlayToonRoot/QA/Contents"
+  real      : "https://secret-angel.speedycdn.net/PlayToonRoot/Real/Contents"
+
+player:  
+  root            : "https://secret-angel.speedycdn.net/PlayToonRoot"
+  testplayer_010  : "https://secret-angel.speedycdn.net/PlayToonRoot/TestPlayer/Player/0.1.0/index.html"
+  testplayer_020  : "https://secret-angel.speedycdn.net/PlayToonRoot/TestPlayer/Player/0.2.0/index.html"
