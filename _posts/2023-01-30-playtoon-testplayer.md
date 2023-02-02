@@ -1,17 +1,18 @@
 ---
-title: "PlayToon TestPlayer Lancher"
+title: "PlayToon TestPlayer Launcher"
 categories:
   - PlayToon
 tags:  
   - playtoon
   - player
+  - launcher
   - test
 toc: true
 ---
 
-# Test Player
+# TestPlayer
 <!-- Html 문법과 markdown 문법 섞임 -->
-**Watch out!** This is the Playtoon Test Player page. [PlayToon Test Player](#test-player).
+**Watch out!** This is the PlayToon TestPlayer Launcher page. [TestPlayer](#testplayer).
 {: .notice--danger}
 
 <form id="formPlayerVersion">
@@ -25,9 +26,9 @@ toc: true
   </fieldset>
 </form>
 
-<form id="formContentsUrl">
+<!-- <form id="formContentsUrl">
   <fieldset>
-    <p>Contents URL:</p>
+    <p>Contents Root URL:</p>
     <div>
       <input type="radio" id="Default" name="contact" value="Default" onclick="SetTargetRadioCustomUrl('Default')" checked> Default
       <label for="Default"></label>
@@ -35,10 +36,10 @@ toc: true
       <label for="Custom" ></label>
     </div>
   </fieldset>
-</form>
+</form> -->
 
 <form id="formInputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
-    <input id="custom-url" name="customUrl" type="text" placeholder="Please enter a Conents URL" disabled required />
+    <input id="custom-url" name="customUrl" type="text" placeholder="Please enter a Contents Root URL" required />
     <input id="title" type="text" placeholder="Title" list="title-list" required />
     <datalist id="title-list">
         <option value="Title_Sample"></option>
@@ -48,7 +49,7 @@ toc: true
         <option value="Episode1"></option>
     </datalist>
     <input id="token" type="text" placeholder="Tokens issued by the client" required />
-    <button type="submit" id="show-selected" class="btn btn--info">View PlayToon</button>
+    <button type="submit" id="show-selected" class="btn btn--info">Play</button>
 </form>
 
 <script charset="UTF-8" type="text/javascript">
@@ -70,43 +71,44 @@ toc: true
         return "";
     }
   }
-  function GetContentsUrl(theForm, selectedCustomUrl, playerVersion){
-    if(selectedCustomUrl == "Custom"){
-      return theForm.elements["custom-url"].value;
-    }
-    else{
-      switch (playerVersion) {
-      case "testplayer_010":
-        return "{{site.data.playtoon-urls.contents.contents_010}}";
-      case "testplayer_020":
-        return "{{site.data.playtoon-urls.contents.contents_020}}";
-      default:
-        return "";
-        }
-      }
-  }
-  function SetTargetRadioCustomUrl(currentRadio){
-    let isCustomUrl = currentRadio == "Custom";
-    if(isCustomUrl == false){
-      formInputInfo.customUrl.value = "";
-    }
-    formInputInfo.customUrl.disabled = !isCustomUrl;
-    formInputInfo.customUrl.required = isCustomUrl;
-  }
+  // function GetContentsUrl(theForm, selectedCustomUrl, playerVersion){
+  //   if(selectedCustomUrl == "Custom"){
+  //     return theForm.elements["custom-url"].value;
+  //   }
+  //   else{
+  //     switch (playerVersion) {
+  //     case "testplayer_010":
+  //       return "{{site.data.playtoon-urls.contents.contents_010}}";
+  //     case "testplayer_020":
+  //       return "{{site.data.playtoon-urls.contents.contents_020}}";
+  //     default:
+  //       return "";
+  //       }
+  //     }
+  // }
+  // function SetTargetRadioCustomUrl(currentRadio){
+  //   let isCustomUrl = currentRadio == "Custom";
+  //   if(isCustomUrl == false){
+  //     formInputInfo.customUrl.value = "";
+  //   }
+  //   formInputInfo.customUrl.disabled = !isCustomUrl;
+  //   formInputInfo.customUrl.required = isCustomUrl;
+  // }
   function PlayToonSubmit(theForm){
     let playerRootUrl = "{{site.data.playtoon-urls.player.root}}";
     let token = theForm.elements["token"].value;
     let title = theForm.elements["title"].value;
     let episode = theForm.elements["episode"].value;
-    for(let i=1; i < formContentsUrl.elements.length; ++i){
-      if(formContentsUrl.elements[i].checked){
-        var selectedCustomUrl = formContentsUrl.elements[i].value;
-      }
-    }
+    let contentsUrl = theForm.elements["custom-url"].value;
+    // for(let i=1; i < formContentsUrl.elements.length; ++i){
+    //   if(formContentsUrl.elements[i].checked){
+    //     var selectedCustomUrl = formContentsUrl.elements[i].value;
+    //   }
+    // }
     for(let i=1; i < formPlayerVersion.elements.length; ++i){
       var playerVersion = formPlayerVersion.elements[i].value;
       var playerUrl = GetPlayerUrl(playerVersion)
-      var contentsUrl = GetContentsUrl(theForm, selectedCustomUrl, playerVersion)
+      // var contentsUrl = GetContentsUrl(theForm, selectedCustomUrl, playerVersion)
     }
     if(playerVersion == "testplayer_010"){
       var url = "{0}?token={1}?title={2}?episode={3}?c_url={4}".format(playerUrl, token, title, episode, contentsUrl);

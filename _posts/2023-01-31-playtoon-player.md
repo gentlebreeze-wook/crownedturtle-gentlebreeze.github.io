@@ -1,21 +1,20 @@
 ---
-title: "PlayToon Player Demo - Beta"
+title: "PlayToonPlayer Launcher"
 categories:
   - PlayToon
 tags:  
   - playtoon
   - player
-  - demo
-  - beta  
+  - launcher
 toc: true
 ---
 
-# Player Demo - Beta
+# PlayToonPlayer
 <!-- Html 문법과 markdown 문법 섞임 -->
-**Watch out!** This is the Playtoon Player demo beta version page. [PlayToon Player Demo](#player-demo---beta).
+**Watch out!** This is the PlayToonPlayer Launcher page. [PlayToonPlayer](#playtoonplayer).
 {: .notice--warning}
 
-<form id="formTargetRadio">
+<!-- <form id="formTargetRadio">
   <fieldset>
     <p>Only QA can be selected:</p>
     <div>
@@ -29,7 +28,7 @@ toc: true
       <label for="Real" ></label>
     </div>
   </fieldset>
-</form>
+</form> -->
 
 <form id="formInputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
     <input id="title" type="text" placeholder="Title" list="title-list" required />
@@ -40,11 +39,11 @@ toc: true
     <datalist id="episode-list">
         <option value="Episode1"></option>
     </datalist>
-    <input id="token" type="text" placeholder="Token" list="token-list" required />
+    <input id="token" type="text" placeholder="Tokens issued by the platform" list="token-list" required />
     <datalist id="token-list">
         <!-- <option value="2Q+XL16sTtE="></option> -->
     </datalist>
-    <button type="submit" id="show-selected" class="btn btn--info">View PlayToon</button>
+    <button type="submit" id="show-selected" class="btn btn--info">Play</button>
 </form>
 
 <script charset="UTF-8" type="text/javascript">
@@ -57,15 +56,16 @@ toc: true
     return formatted;
   }
   function PlayToonSubmit(theForm){
+    let playerRootUrl = "{{site.data.playtoon-urls.player.root}}";
     let token = theForm.elements["token"].value;
     let title = theForm.elements["title"].value;
     let episode = theForm.elements["episode"].value;
-    for(let i=1; i < formTargetRadio.elements.length; ++i){
-      if(formTargetRadio.elements[i].checked){
-        var target = formTargetRadio.elements[i].value;
-      }
-    }
-    var url = "https://secret-angel.speedycdn.net/PlayToonRoot/{0}/Player/index.html?token={1}?title={2}?episode={3}".format(target, token, title, episode);
+    // for(let i=1; i < formTargetRadio.elements.length; ++i){
+    //   if(formTargetRadio.elements[i].checked){
+    //     var target = formTargetRadio.elements[i].value;
+    //   }
+    // }
+    var url = "{0}/QA/Player/index.html?token={1}?title={2}?episode={3}".format(playerRootUrl, token, title, episode);
     location.href=url;
   }
 </script>

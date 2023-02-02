@@ -1,19 +1,18 @@
 ---
-title: "PlayToon Player Demo - Alpha (Develop)"
+title: "PlayToonPlayer Launcher(Develop)"
 categories:
   - PlayToon
 tags:  
   - playtoon
   - player
-  - demo
-  - alpha
-  - develop  
+  - launcher
+  - develop
 toc: true
 ---
 
-# Player Demo - Alpha (Develop)
+# PlayToonPlayer(Develop)
 <!-- Html 문법과 markdown 문법 섞임 -->
-**Watch out!** This is the Playtoon Player demo alpha version develop page. [PlayToon Player Demo](#player-demo---alpha-develop).
+**Watch out!** This is the PlayToonPlayer Launcher(develop) page. [PlayToonPlayer(Develop)](#playToonPlayer(develop)).
 {: .notice--danger}
 
 <form id="formTargetRadio">
@@ -35,7 +34,7 @@ toc: true
 </form>
 
 <form id="formInputInfo" action="javascript:;" onsubmit="return PlayToonSubmit(this);">
-    <input id="custom-url" name="customUrl" type="text" placeholder="Please enter a Conents URL" disabled required />
+    <input id="custom-url" name="customUrl" type="text" placeholder="Please enter a Conents Root URL" disabled required />
     <input id="title" type="text" placeholder="Title" list="title-list" required />
     <datalist id="title-list">
         <option value="Title_Sample"></option>
@@ -45,11 +44,11 @@ toc: true
     <datalist id="episode-list">
         <option value="Episode1"></option>
     </datalist>
-    <input id="token" type="text" placeholder="Token" list="token-list" required />
+    <input id="token" type="text" placeholder="Tokens issued by the platform" list="token-list" required />
     <datalist id="token-list">
         <!-- <option value="2Q+XL16sTtE="></option> -->
     </datalist>
-    <button type="submit" id="show-selected" class="btn btn--info">View PlayToon</button>
+    <button type="submit" id="show-selected" class="btn btn--info">Play</button>
 </form>
 
 <script charset="UTF-8" type="text/javascript">
